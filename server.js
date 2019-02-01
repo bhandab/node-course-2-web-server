@@ -19,12 +19,12 @@ app.use((req, res, next)=>{
     });
     next();
 });
-/*
+
 //without calling next() rest of the code after this middleware
 //will not be executed
-app.use((req, res, next)=>{
-    res.render('maintenance.hbs');
-});*/
+// app.use((req, res, next)=>{
+//     res.render('maintenance.hbs');
+// });
 
 //app.use creates middlware that lets you configure how
 //your express app works
@@ -60,6 +60,7 @@ app.get('/bad',(req, res)=>{
         errorMessage:'Unable to handle request'
     });
 });
+const port = process.env.PORT || 3000;
 app.listen(3000,()=>{
-    console.log('Server is up on port 3000');
+    console.log(`Server up and running on port ${port}`);
 });
